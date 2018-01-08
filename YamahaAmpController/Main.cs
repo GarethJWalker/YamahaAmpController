@@ -17,13 +17,14 @@ namespace YamahaAmpController
         private string currentArtUrl;
         public List<Tuple<DateTime,NowPlayingInfo>> History { get; set; }
         public string CurrentStatus { get; private set; }
-
+        History HistoryWindow { get;  set;}
         private YamahaReceiver Amp = new YamahaReceiver();
 
         public Main()
         {
             InitializeComponent();
             this.Focus();
+
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -80,8 +81,8 @@ namespace YamahaAmpController
                 this.label1.Text = np.Artist;
                 this.label2.Text = np.Title;
                 this.label3.Text = np.Album;
-
-
+                HistoryWindow?.Redraw();
+                notifyIcon1.BalloonTipText = np.Artist + " - " + np.Title;
             }
 
             if (currentArtUrl != np.ArtURL)
@@ -115,9 +116,9 @@ namespace YamahaAmpController
 
         private void label4_Click(object sender, EventArgs e)
         {
-            var h = new History(this);
-            
-            h.Show();
+            if (HistoryWindow==null || HistoryWindow.IsDisposed) HistoryWindow = new History(this);
+
+            HistoryWindow.Show();
         }
 
         private void PlayPause_Click(object sender, EventArgs e)
@@ -128,6 +129,29 @@ namespace YamahaAmpController
             } else
             {
                 Amp.Play();
+            }
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            notifyIcon1.Visible = true;
+
+            this.Hide();
+            e.Cancel = true;
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+             
+                this.Show();
+                notifyIcon1.Visible = false;
             }
         }
     }

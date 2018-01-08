@@ -185,7 +185,7 @@ namespace YamahaAmpController
                 {
 
                     xsSubmit.Serialize(writer, obj, namespaces);
-                    xml = sww.ToString(); // Your XML
+                    xml = sww.ToString();
                 }
             }
             xml = xml.Replace(@"<?xml version=""1.0"" encoding=""utf-16""?>", "");
