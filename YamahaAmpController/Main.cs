@@ -36,6 +36,8 @@ namespace YamahaAmpController
             this.label1.Text = "";
             this.label2.Text = "";
             this.label3.Text = "";
+
+            notifyIcon1.Visible = false;
             GetCurrent();
             timer1.Start();
 
@@ -83,6 +85,7 @@ namespace YamahaAmpController
                 this.label3.Text = np.Album;
                 HistoryWindow?.Redraw();
                 notifyIcon1.BalloonTipText = np.Artist + " - " + np.Title;
+                notifyIcon1.Text = np.Artist + " - " + np.Title;
             }
 
             if (currentArtUrl != np.ArtURL)
@@ -134,6 +137,8 @@ namespace YamahaAmpController
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
+
+
             notifyIcon1.Visible = true;
 
             this.Hide();
@@ -153,6 +158,27 @@ namespace YamahaAmpController
                 this.Show();
                 notifyIcon1.Visible = false;
             }
+            if (e.Button == MouseButtons.Right)
+            {
+
+                contextMenuStrip1.Show();
+                Rectangle workingArea = Screen.GetWorkingArea(this);
+                contextMenuStrip1.Location = new Point(workingArea.Right - Size.Width, workingArea.Bottom - 30);
+            }
+        }
+
+
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.Visible = false;
+            Environment.Exit(0);
+        }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            notifyIcon1.Visible = false;
         }
     }
 }

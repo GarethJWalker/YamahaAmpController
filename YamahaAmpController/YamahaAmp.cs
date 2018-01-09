@@ -59,22 +59,29 @@ namespace YamahaAmpController
 
         public NowPlayingInfo NowPlaying()
         {
-
-
-            var text = GetResponse($@"<YAMAHA_AV cmd=""GET""><{Source}><Play_Info>GetParam</Play_Info></{Source}></YAMAHA_AV>").Replace($@"<{Source}>", "").Replace($@"</{Source}>", "");
-            XmlSerializer serializer = new XmlSerializer(typeof(YamahaAmpControllerResponse.YAMAHA_AV));
             var np = new NowPlayingInfo();
-
-            using (TextReader reader = new StringReader(text))
+            try
             {
-                var result = serializer.Deserialize(reader) as YamahaAmpControllerResponse.YAMAHA_AV;
-                np.Artist = result.Play_Info.Meta_Info.Artist;
-                np.Album = result.Play_Info.Meta_Info.Album;
-                np.Title = result.Play_Info.Meta_Info.Track;
-                np.ArtURL = result.Play_Info.Album_ART.URL;
-                np.Status = result.Play_Info.Playback_Info;
+                var text = GetResponse($@"<YAMAHA_AV cmd=""GET""><{Source}><Play_Info>GetParam</Play_Info></{Source}></YAMAHA_AV>").Replace($@"<{Source}>", "").Replace($@"</{Source}>", "");
+                XmlSerializer serializer = new XmlSerializer(typeof(YamahaAmpControllerResponse.YAMAHA_AV));
+                using (TextReader reader = new StringReader(text))
+                {
+                    var result = serializer.Deserialize(reader) as YamahaAmpControllerResponse.YAMAHA_AV;
+                    np.Artist = result.Play_Info.Meta_Info.Artist;
+                    np.Album = result.Play_Info.Meta_Info.Album;
+                    np.Title = result.Play_Info.Meta_Info.Track;
+                    np.ArtURL = result.Play_Info.Album_ART.URL;
+                    np.Status = result.Play_Info.Playback_Info;
 
+                }
+            } catch (WebException ex)
+            {
+                return new NowPlayingInfo() { Status = "Non supported" };
             }
+
+
+
+
 
 
             return np;
@@ -94,10 +101,16 @@ namespace YamahaAmpController
             {
                 stream.Write(data, 0, data.Length);
             }
+            try
+            {
+                var response = (HttpWebResponse)request.GetResponse();
+                return new StreamReader(response.GetResponseStream()).ReadToEnd();
+            } catch (WebException ex)
+            {
+                throw ex; 
+            }
 
-            var response = (HttpWebResponse)request.GetResponse();
 
-            return new StreamReader(response.GetResponseStream()).ReadToEnd();
         }
 
         public Image GetImage(string image)
