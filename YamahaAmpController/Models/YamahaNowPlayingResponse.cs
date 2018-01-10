@@ -9,7 +9,7 @@ namespace YamahaAmpController.Models
     public class YamahaAmpControllerResponse
     {
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
         public partial class YAMAHA_AV
@@ -21,7 +21,7 @@ namespace YamahaAmpController.Models
 
             private byte rcField;
 
-            /// <remarks/>
+            
             public YAMAHA_AVPlay_Info Play_Info
             {
                 get
@@ -34,7 +34,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             [System.Xml.Serialization.XmlAttributeAttribute()]
             public string rsp
             {
@@ -48,7 +48,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             [System.Xml.Serialization.XmlAttributeAttribute()]
             public byte RC
             {
@@ -63,7 +63,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVPlay_Info
         {
@@ -80,7 +80,7 @@ namespace YamahaAmpController.Models
 
             private YAMAHA_AVPlay_InfoInput_Logo input_LogoField;
 
-            /// <remarks/>
+            
             public string Feature_Availability
             {
                 get
@@ -93,7 +93,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Playback_Info
             {
                 get
@@ -106,7 +106,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVPlay_InfoPlay_Mode Play_Mode
             {
                 get
@@ -119,7 +119,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVPlay_InfoMeta_Info Meta_Info
             {
                 get
@@ -132,7 +132,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVPlay_InfoAlbum_ART Album_ART
             {
                 get
@@ -145,7 +145,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVPlay_InfoInput_Logo Input_Logo
             {
                 get
@@ -159,7 +159,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVPlay_InfoPlay_Mode
         {
@@ -168,7 +168,7 @@ namespace YamahaAmpController.Models
 
             private string shuffleField;
 
-            /// <remarks/>
+            
             public string Repeat
             {
                 get
@@ -181,7 +181,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Shuffle
             {
                 get
@@ -195,7 +195,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVPlay_InfoMeta_Info
         {
@@ -206,7 +206,7 @@ namespace YamahaAmpController.Models
 
             private string trackField;
 
-            /// <remarks/>
+            
             public string Artist
             {
                 get
@@ -219,7 +219,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Album
             {
                 get
@@ -232,7 +232,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Track
             {
                 get
@@ -246,7 +246,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVPlay_InfoAlbum_ART
         {
@@ -257,7 +257,7 @@ namespace YamahaAmpController.Models
 
             private string formatField;
 
-            /// <remarks/>
+            
             public string URL
             {
                 get
@@ -270,7 +270,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public ushort ID
             {
                 get
@@ -283,7 +283,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Format
             {
                 get
@@ -297,7 +297,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVPlay_InfoInput_Logo
         {
@@ -308,7 +308,7 @@ namespace YamahaAmpController.Models
 
             private object uRL_LField;
 
-            /// <remarks/>
+            
             public string URL_S
             {
                 get
@@ -321,7 +321,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public object URL_M
             {
                 get
@@ -334,7 +334,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public object URL_L
             {
                 get

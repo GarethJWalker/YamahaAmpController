@@ -85,7 +85,7 @@ namespace YamahaAmpController
                 this.label3.Text = np.Album;
                 HistoryWindow?.Redraw();
                 notifyIcon1.BalloonTipText = np.Artist + " - " + np.Title;
-                notifyIcon1.Text = np.Artist + " - " + np.Title;
+                notifyIcon1.Text = (np.Artist + " - " + np.Title).Left(50);
             }
 
             if (currentArtUrl != np.ArtURL)

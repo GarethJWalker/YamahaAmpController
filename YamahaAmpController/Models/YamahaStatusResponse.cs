@@ -9,13 +9,6 @@ namespace YamahaAmpController.Models
     public class YamahaStatusResponse
     {
 
-
-
-
-
-
-
-        /// <remarks/>
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
         public partial class YAMAHA_AV
@@ -27,7 +20,7 @@ namespace YamahaAmpController.Models
 
             private byte rcField;
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_Zone Main_Zone
             {
                 get
@@ -40,7 +33,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             [System.Xml.Serialization.XmlAttributeAttribute()]
             public string rsp
             {
@@ -54,7 +47,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             [System.Xml.Serialization.XmlAttributeAttribute()]
             public byte RC
             {
@@ -69,14 +62,14 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_Zone
         {
 
             private YAMAHA_AVMain_ZoneBasic_Status basic_StatusField;
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_Status Basic_Status
             {
                 get
@@ -90,7 +83,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_Status
         {
@@ -107,7 +100,7 @@ namespace YamahaAmpController.Models
 
             private YAMAHA_AVMain_ZoneBasic_StatusSpeaker_Preout speaker_PreoutField;
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusPower_Control Power_Control
             {
                 get
@@ -120,7 +113,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusVolume Volume
             {
                 get
@@ -133,7 +126,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusInput Input
             {
                 get
@@ -146,7 +139,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusSurround Surround
             {
                 get
@@ -159,7 +152,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusSound_Video Sound_Video
             {
                 get
@@ -172,7 +165,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusSpeaker_Preout Speaker_Preout
             {
                 get
@@ -186,7 +179,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusPower_Control
         {
@@ -197,7 +190,7 @@ namespace YamahaAmpController.Models
 
             private string sleepField;
 
-            /// <remarks/>
+            
             public string Power
             {
                 get
@@ -210,7 +203,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Zone_B_Power_Info
             {
                 get
@@ -223,7 +216,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Sleep
             {
                 get
@@ -237,7 +230,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusVolume
         {
@@ -252,7 +245,7 @@ namespace YamahaAmpController.Models
 
             private YAMAHA_AVMain_ZoneBasic_StatusVolumeZone_B zone_BField;
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusVolumeLvl Lvl
             {
                 get
@@ -265,7 +258,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Mute
             {
                 get
@@ -278,7 +271,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusVolumeSubwoofer_Trim Subwoofer_Trim
             {
                 get
@@ -291,7 +284,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Scale
             {
                 get
@@ -304,7 +297,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusVolumeZone_B Zone_B
             {
                 get
@@ -318,7 +311,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusVolumeLvl
         {
@@ -329,7 +322,7 @@ namespace YamahaAmpController.Models
 
             private string unitField;
 
-            /// <remarks/>
+            
             public short Val
             {
                 get
@@ -342,7 +335,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public byte Exp
             {
                 get
@@ -355,7 +348,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Unit
             {
                 get
@@ -369,7 +362,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusVolumeSubwoofer_Trim
         {
@@ -380,7 +373,7 @@ namespace YamahaAmpController.Models
 
             private string unitField;
 
-            /// <remarks/>
+            
             public byte Val
             {
                 get
@@ -393,7 +386,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public byte Exp
             {
                 get
@@ -406,7 +399,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Unit
             {
                 get
@@ -420,7 +413,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusVolumeZone_B
         {
@@ -433,7 +426,7 @@ namespace YamahaAmpController.Models
 
             private string muteField;
 
-            /// <remarks/>
+            
             public string Feature_Availability
             {
                 get
@@ -446,7 +439,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Interlock
             {
                 get
@@ -459,7 +452,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusVolumeZone_BLvl Lvl
             {
                 get
@@ -472,7 +465,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Mute
             {
                 get
@@ -486,7 +479,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusVolumeZone_BLvl
         {
@@ -497,7 +490,7 @@ namespace YamahaAmpController.Models
 
             private string unitField;
 
-            /// <remarks/>
+            
             public short Val
             {
                 get
@@ -510,7 +503,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public byte Exp
             {
                 get
@@ -523,7 +516,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Unit
             {
                 get
@@ -537,7 +530,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusInput
         {
@@ -546,7 +539,7 @@ namespace YamahaAmpController.Models
 
             private YAMAHA_AVMain_ZoneBasic_StatusInputInput_Sel_Item_Info input_Sel_Item_InfoField;
 
-            /// <remarks/>
+            
             public string Input_Sel
             {
                 get
@@ -559,7 +552,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusInputInput_Sel_Item_Info Input_Sel_Item_Info
             {
                 get
@@ -573,7 +566,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusInputInput_Sel_Item_Info
         {
@@ -590,7 +583,7 @@ namespace YamahaAmpController.Models
 
             private byte src_NumberField;
 
-            /// <remarks/>
+            
             public string Param
             {
                 get
@@ -603,7 +596,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string RW
             {
                 get
@@ -616,7 +609,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Title
             {
                 get
@@ -629,7 +622,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusInputInput_Sel_Item_InfoIcon Icon
             {
                 get
@@ -642,7 +635,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Src_Name
             {
                 get
@@ -655,7 +648,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public byte Src_Number
             {
                 get
@@ -669,7 +662,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusInputInput_Sel_Item_InfoIcon
         {
@@ -678,7 +671,7 @@ namespace YamahaAmpController.Models
 
             private object offField;
 
-            /// <remarks/>
+            
             public string On
             {
                 get
@@ -691,7 +684,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public object Off
             {
                 get
@@ -705,7 +698,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusSurround
         {
@@ -714,7 +707,7 @@ namespace YamahaAmpController.Models
 
             private string _3D_Cinema_DSPField;
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusSurroundProgram_Sel Program_Sel
             {
                 get
@@ -727,7 +720,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string _3D_Cinema_DSP
             {
                 get
@@ -741,14 +734,14 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusSurroundProgram_Sel
         {
 
             private YAMAHA_AVMain_ZoneBasic_StatusSurroundProgram_SelCurrent currentField;
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusSurroundProgram_SelCurrent Current
             {
                 get
@@ -762,7 +755,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusSurroundProgram_SelCurrent
         {
@@ -773,7 +766,7 @@ namespace YamahaAmpController.Models
 
             private string sound_ProgramField;
 
-            /// <remarks/>
+            
             public string Straight
             {
                 get
@@ -786,7 +779,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Enhancer
             {
                 get
@@ -799,7 +792,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Sound_Program
             {
                 get
@@ -813,7 +806,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusSound_Video
         {
@@ -830,7 +823,7 @@ namespace YamahaAmpController.Models
 
             private YAMAHA_AVMain_ZoneBasic_StatusSound_VideoDialogue_Adjust dialogue_AdjustField;
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusSound_VideoTone Tone
             {
                 get
@@ -843,7 +836,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusSound_VideoDirect Direct
             {
                 get
@@ -856,7 +849,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusSound_VideoHDMI HDMI
             {
                 get
@@ -869,7 +862,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Extra_Bass
             {
                 get
@@ -882,7 +875,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Adaptive_DRC
             {
                 get
@@ -895,7 +888,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusSound_VideoDialogue_Adjust Dialogue_Adjust
             {
                 get
@@ -909,7 +902,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusSound_VideoTone
         {
@@ -918,7 +911,7 @@ namespace YamahaAmpController.Models
 
             private YAMAHA_AVMain_ZoneBasic_StatusSound_VideoToneTreble trebleField;
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusSound_VideoToneBass Bass
             {
                 get
@@ -931,7 +924,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusSound_VideoToneTreble Treble
             {
                 get
@@ -945,7 +938,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusSound_VideoToneBass
         {
@@ -956,7 +949,7 @@ namespace YamahaAmpController.Models
 
             private string unitField;
 
-            /// <remarks/>
+            
             public byte Val
             {
                 get
@@ -969,7 +962,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public byte Exp
             {
                 get
@@ -982,7 +975,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Unit
             {
                 get
@@ -996,7 +989,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusSound_VideoToneTreble
         {
@@ -1007,7 +1000,7 @@ namespace YamahaAmpController.Models
 
             private string unitField;
 
-            /// <remarks/>
+            
             public byte Val
             {
                 get
@@ -1020,7 +1013,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public byte Exp
             {
                 get
@@ -1033,7 +1026,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Unit
             {
                 get
@@ -1047,14 +1040,14 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusSound_VideoDirect
         {
 
             private string modeField;
 
-            /// <remarks/>
+            
             public string Mode
             {
                 get
@@ -1068,7 +1061,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusSound_VideoHDMI
         {
@@ -1077,7 +1070,7 @@ namespace YamahaAmpController.Models
 
             private YAMAHA_AVMain_ZoneBasic_StatusSound_VideoHDMIOutput outputField;
 
-            /// <remarks/>
+            
             public string Standby_Through_Info
             {
                 get
@@ -1090,7 +1083,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusSound_VideoHDMIOutput Output
             {
                 get
@@ -1104,14 +1097,14 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusSound_VideoHDMIOutput
         {
 
             private string oUT_1Field;
 
-            /// <remarks/>
+            
             public string OUT_1
             {
                 get
@@ -1125,7 +1118,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusSound_VideoDialogue_Adjust
         {
@@ -1136,7 +1129,7 @@ namespace YamahaAmpController.Models
 
             private byte dTS_Dialogue_ControlField;
 
-            /// <remarks/>
+            
             public byte Dialogue_Lift
             {
                 get
@@ -1149,7 +1142,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public byte Dialogue_Lvl
             {
                 get
@@ -1162,7 +1155,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public byte DTS_Dialogue_Control
             {
                 get
@@ -1176,14 +1169,14 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusSpeaker_Preout
         {
 
             private YAMAHA_AVMain_ZoneBasic_StatusSpeaker_PreoutSpeaker_AB speaker_ABField;
 
-            /// <remarks/>
+            
             public YAMAHA_AVMain_ZoneBasic_StatusSpeaker_PreoutSpeaker_AB Speaker_AB
             {
                 get
@@ -1197,7 +1190,7 @@ namespace YamahaAmpController.Models
             }
         }
 
-        /// <remarks/>
+        
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         public partial class YAMAHA_AVMain_ZoneBasic_StatusSpeaker_PreoutSpeaker_AB
         {
@@ -1206,7 +1199,7 @@ namespace YamahaAmpController.Models
 
             private string speaker_BField;
 
-            /// <remarks/>
+            
             public string Speaker_A
             {
                 get
@@ -1219,7 +1212,7 @@ namespace YamahaAmpController.Models
                 }
             }
 
-            /// <remarks/>
+            
             public string Speaker_B
             {
                 get

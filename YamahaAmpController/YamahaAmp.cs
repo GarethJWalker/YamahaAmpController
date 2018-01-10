@@ -34,9 +34,6 @@ namespace YamahaAmpController
     {
         private string endpoint = "http://192.168.1.141";
         private string ctrl = "/YamahaRemoteControl/ctrl";
-
-
-
         public YamamaStatus GetStatus()
         {
             var text = GetResponse($@"<YAMAHA_AV cmd=""GET""><Main_Zone><Basic_Status>GetParam</Basic_Status></Main_Zone></YAMAHA_AV>");
@@ -45,9 +42,6 @@ namespace YamahaAmpController
             using (TextReader reader = new StringReader(text))
             {
                 var result = serializer.Deserialize(reader) as YamahaStatusResponse.YAMAHA_AV;
-
-
-
                 return new YamamaStatus()
                 {
                     Volume = result.Main_Zone.Basic_Status.Volume.Lvl.Val,
@@ -74,16 +68,10 @@ namespace YamahaAmpController
                     np.Status = result.Play_Info.Playback_Info;
 
                 }
-            } catch (WebException ex)
+            } catch (WebException) //TODO: Check for more appropriate error
             {
                 return new NowPlayingInfo() { Status = "Non supported" };
-            }
-
-
-
-
-
-
+            }            
             return np;
         }
 
@@ -105,9 +93,9 @@ namespace YamahaAmpController
             {
                 var response = (HttpWebResponse)request.GetResponse();
                 return new StreamReader(response.GetResponseStream()).ReadToEnd();
-            } catch (WebException ex)
+            } catch (WebException)
             {
-                throw ex; 
+                throw; 
             }
 
 
@@ -159,18 +147,14 @@ namespace YamahaAmpController
             var request = (HttpWebRequest)WebRequest.Create(endpoint + ctrl);
 
             var data = Encoding.ASCII.GetBytes(xml);
-
             request.Method = "POST";
             request.ContentType = "application/xml";
             request.ContentLength = data.Length;
-
             using (var stream = request.GetRequestStream())
             {
                 stream.Write(data, 0, data.Length);
             }
-
             var response = (HttpWebResponse)request.GetResponse();
-
             var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
         }
 
@@ -201,7 +185,9 @@ namespace YamahaAmpController
                     xml = sww.ToString();
                 }
             }
+            // Amp doesn't like this!
             xml = xml.Replace(@"<?xml version=""1.0"" encoding=""utf-16""?>", "");
+            // Also doesn't like short tags so this is a hacky way round it
             xml = xml.Replace("NULL_MARKER", "");
             return xml;
         }

@@ -64,6 +64,7 @@
     <Compile Include="Models\YamahaNowPlayingResponse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util.cs" />
     <Compile Include="YamahaAmp.cs" />
     <EmbeddedResource Include="History.resx">
       <DependentUpon>History.cs</DependentUpon>

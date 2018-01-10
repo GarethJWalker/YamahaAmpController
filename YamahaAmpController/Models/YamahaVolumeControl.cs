@@ -27,7 +27,7 @@ namespace YamahaControl
                 return y;
             }
 
-            /// <remarks/>
+            
             [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
             [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
             public partial class YAMAHA_AV
@@ -37,7 +37,7 @@ namespace YamahaControl
 
                 private string cmdField;
 
-                /// <remarks/>
+                
                 public YAMAHA_AVMain_Zone Main_Zone
                 {
                     get
@@ -50,7 +50,7 @@ namespace YamahaControl
                     }
                 }
 
-                /// <remarks/>
+                
                 [System.Xml.Serialization.XmlAttributeAttribute()]
                 public string cmd
                 {
@@ -65,14 +65,14 @@ namespace YamahaControl
                 }
             }
 
-            /// <remarks/>
+            
             [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
             public partial class YAMAHA_AVMain_Zone
             {
 
                 private YAMAHA_AVMain_ZoneVolume volumeField;
 
-                /// <remarks/>
+                
                 public YAMAHA_AVMain_ZoneVolume Volume
                 {
                     get
@@ -86,14 +86,14 @@ namespace YamahaControl
                 }
             }
 
-            /// <remarks/>
+            
             [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
             public partial class YAMAHA_AVMain_ZoneVolume
             {
 
                 private YAMAHA_AVMain_ZoneVolumeLvl lvlField;
 
-                /// <remarks/>
+                
                 public YAMAHA_AVMain_ZoneVolumeLvl Lvl
                 {
                     get
@@ -107,7 +107,7 @@ namespace YamahaControl
                 }
             }
 
-            /// <remarks/>
+            
             [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
             public partial class YAMAHA_AVMain_ZoneVolumeLvl
             {
@@ -118,7 +118,7 @@ namespace YamahaControl
 
                 private string unitField;
 
-                /// <remarks/>
+                
                 public string Val
                 {
                     get
@@ -131,7 +131,7 @@ namespace YamahaControl
                     }
                 }
 
-                /// <remarks/>
+                
                 public string Exp
                 {
                     get
@@ -144,7 +144,7 @@ namespace YamahaControl
                     }
                 }
 
-                /// <remarks/>
+                
                 public string Unit
                 {
                     get
