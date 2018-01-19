@@ -205,8 +205,8 @@ namespace YamahaAmpController.Models
             private string albumField;
 
             private string trackField;
+            private string songField;
 
-            
             public string Artist
             {
                 get
@@ -242,6 +242,18 @@ namespace YamahaAmpController.Models
                 set
                 {
                     this.trackField = value;
+                }
+            }
+
+            public string Song
+            {
+                get
+                {
+                    return this.songField;
+                }
+                set
+                {
+                    this.songField = value;
                 }
             }
         }

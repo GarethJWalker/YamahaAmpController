@@ -56,6 +56,7 @@
             this.label1.Size = new System.Drawing.Size(41, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Artist";
+            this.label1.UseMnemonic = false;
             // 
             // label2
             // 
@@ -66,6 +67,7 @@
             this.label2.Size = new System.Drawing.Size(35, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Title";
+            this.label2.UseMnemonic = false;
             // 
             // label3
             // 
@@ -76,6 +78,7 @@
             this.label3.Size = new System.Drawing.Size(49, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Album";
+            this.label3.UseMnemonic = false;
             // 
             // pictureBox1
             // 

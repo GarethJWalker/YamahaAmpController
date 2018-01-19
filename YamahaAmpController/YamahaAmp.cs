@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using YamahaAmpController.Models;
 using System.Xml;
+using System.Web;
 
 namespace YamahaAmpController
 {
@@ -23,7 +24,7 @@ namespace YamahaAmpController
         public string Status { get; set; }
     }
 
-    public class YamamaStatus
+    public class YamahaStatus
     {
         public int Volume { get; set; }
         public string Source { get; set; }
@@ -34,7 +35,7 @@ namespace YamahaAmpController
     {
         private string endpoint = "http://192.168.1.141";
         private string ctrl = "/YamahaRemoteControl/ctrl";
-        public YamamaStatus GetStatus()
+        public YamahaStatus GetStatus()
         {
             var text = GetResponse($@"<YAMAHA_AV cmd=""GET""><Main_Zone><Basic_Status>GetParam</Basic_Status></Main_Zone></YAMAHA_AV>");
             XmlSerializer serializer = new XmlSerializer(typeof(YamahaStatusResponse.YAMAHA_AV));
@@ -42,7 +43,7 @@ namespace YamahaAmpController
             using (TextReader reader = new StringReader(text))
             {
                 var result = serializer.Deserialize(reader) as YamahaStatusResponse.YAMAHA_AV;
-                return new YamamaStatus()
+                return new YamahaStatus()
                 {
                     Volume = result.Main_Zone.Basic_Status.Volume.Lvl.Val,
                     Source = result.Main_Zone.Basic_Status.Input.Input_Sel
@@ -60,10 +61,12 @@ namespace YamahaAmpController
                 XmlSerializer serializer = new XmlSerializer(typeof(YamahaAmpControllerResponse.YAMAHA_AV));
                 using (TextReader reader = new StringReader(text))
                 {
+                    if (text.Contains("Not Ready"))  return new NowPlayingInfo() { Status = "Stopped" };
                     var result = serializer.Deserialize(reader) as YamahaAmpControllerResponse.YAMAHA_AV;
-                    np.Artist = result.Play_Info.Meta_Info.Artist;
-                    np.Album = result.Play_Info.Meta_Info.Album;
-                    np.Title = result.Play_Info.Meta_Info.Track;
+                    if (result.Play_Info == null) return new NowPlayingInfo() { Status = "Stopped" }; ;
+                    np.Artist = HttpUtility.HtmlDecode(result.Play_Info.Meta_Info.Artist);
+                    np.Album = HttpUtility.HtmlDecode(result.Play_Info.Meta_Info.Album);
+                    np.Title = HttpUtility.HtmlDecode(result.Play_Info.Meta_Info.Track ?? result.Play_Info.Meta_Info.Song);
                     np.ArtURL = result.Play_Info.Album_ART.URL;
                     np.Status = result.Play_Info.Playback_Info;
 

@@ -37,6 +37,7 @@ namespace YamahaAmpController
                 this.dataGridView1.Columns[2].Width = ((this.dataGridView1.Width - 130) / 3) - 1;
                 this.dataGridView1.Columns[3].Width = ((this.dataGridView1.Width - 130) / 3) - 1;
                 this.dataGridView1.Columns[4].Width = ((this.dataGridView1.Width - 130) / 3) - 1;
+
         }
 
         private void History_Resize(object sender, EventArgs e)

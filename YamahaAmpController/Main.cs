@@ -53,7 +53,7 @@ namespace YamahaAmpController
 
             if (np.Status=="Play")
             {
-                this.Text = "Currently Playing...";
+                this.Text = $"Playing ({Amp.GetStatus().Source})...";
                 this.PlayPause.Text = "| |";
             }
 
