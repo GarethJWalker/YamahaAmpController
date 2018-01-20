@@ -265,7 +265,7 @@ namespace YamahaAmpController.Models
 
             private string uRLField;
 
-            private ushort idField;
+            private int idField;
 
             private string formatField;
 
@@ -283,7 +283,7 @@ namespace YamahaAmpController.Models
             }
 
             
-            public ushort ID
+            public int ID
             {
                 get
                 {
