@@ -28,7 +28,10 @@ namespace YamahaAmpController
     {
         public int Volume { get; set; }
         public string Source { get; set; }
-
+        public string MainZoneMute { get; set; }
+        public string ZoneBMute { get; set; }
+        public short MainZoneVolume { get; set; }
+        public short ZoneBVolume { get; set; }
     }
 
     public class YamahaReceiver
@@ -46,8 +49,11 @@ namespace YamahaAmpController
                 return new YamahaStatus()
                 {
                     Volume = result.Main_Zone.Basic_Status.Volume.Lvl.Val,
-                    Source = result.Main_Zone.Basic_Status.Input.Input_Sel
-
+                    Source = result.Main_Zone.Basic_Status.Input.Input_Sel,
+                    MainZoneMute = result.Main_Zone.Basic_Status.Volume.Mute,
+                    ZoneBMute = result.Main_Zone.Basic_Status.Volume.Zone_B.Mute,
+                    MainZoneVolume = result.Main_Zone.Basic_Status.Volume.Lvl.Val,
+                    ZoneBVolume = result.Main_Zone.Basic_Status.Volume.Zone_B.Lvl.Val
                 };
             }
         }
@@ -67,7 +73,7 @@ namespace YamahaAmpController
                     np.Artist = HttpUtility.HtmlDecode(result.Play_Info.Meta_Info.Artist);
                     np.Album = HttpUtility.HtmlDecode(result.Play_Info.Meta_Info.Album);
                     np.Title = HttpUtility.HtmlDecode(result.Play_Info.Meta_Info.Track ?? result.Play_Info.Meta_Info.Song);
-                    np.ArtURL = result.Play_Info.Album_ART.URL;
+                    np.ArtURL = result.Play_Info.Album_ART?.URL;
                     np.Status = result.Play_Info.Playback_Info;
 
                 }
@@ -114,10 +120,28 @@ namespace YamahaAmpController
             return img;
         }
 
-        public void ChangeVolume(int change)
+        public void ChangeVolume(int change, int zone=1)
         {
             var v = new YamahaControl.VolumeControl();
-            Send(v.Change(change).AsXML());
+            if (zone == 1) Send(v.Change(change).AsXML());
+            if (zone==2) Send(v.ChangeZone2(change).AsXML());
+        }
+
+        public void ToggleMute(int zone)
+        {
+            if (zone == 1)
+            {
+                var newStatus = GetStatus().MainZoneMute == "On" ? "Off" : "On";
+                Send("\'<YAMAHA_AV cmd=\"PUT\"><Main_Zone><Volume><Mute>" + newStatus+ "</Mute></Volume></Main_Zone></YAMAHA_AV>\'");
+            }
+
+            if (zone == 2)
+            {
+                var newStatus = GetStatus().ZoneBMute == "On" ? "Off" : "On";
+                Send("<YAMAHA_AV cmd=\"PUT\"><Main_Zone><Volume><Zone_B><Mute>" + newStatus + "</Mute></Zone_B></Volume></Main_Zone></YAMAHA_AV>");
+            }
+
+
         }
 
 

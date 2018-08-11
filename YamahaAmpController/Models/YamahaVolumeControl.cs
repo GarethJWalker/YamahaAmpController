@@ -18,27 +18,40 @@ namespace YamahaControl
             {
                 var y = new YAMAHA_AV();
                 y.cmd = "PUT";
-                y.Main_Zone = new YAMAHA_AVMain_Zone();                
-                y.Main_Zone.Volume = new YAMAHA_AVMain_ZoneVolume();
-                y.Main_Zone.Volume.Lvl = new YAMAHA_AVMain_ZoneVolumeLvl();
+                y.Main_Zone = new YAMAHA_AV_Zone();                
+                y.Main_Zone.Volume = new YAMAHA_AV_ZoneVolume();
+                y.Main_Zone.Volume.Lvl = new YAMAHA_AV_ZoneVolumeLvl();
                 y.Main_Zone.Volume.Lvl.Val = $"{(change>0 ? "Up" : "Down")} {Math.Abs(change)} dB";
                 y.Main_Zone.Volume.Lvl.Exp = "NULL_MARKER";
                 y.Main_Zone.Volume.Lvl.Unit = "NULL_MARKER";
                 return y;
             }
+            public YAMAHA_AV ChangeZone2(int change)
+            {
+                var y = new YAMAHA_AV();
+                y.cmd = "PUT";
+                y.Main_Zone = new YAMAHA_AV_Zone();
 
-            
-            [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+                y.Main_Zone.Volume = new YAMAHA_AV_ZoneVolume();
+                y.Main_Zone.Volume.Zone_B = new YAMAMA_AZ_ZoneB();
+                y.Main_Zone.Volume.Zone_B.Lvl = new YAMAHA_AV_ZoneVolumeLvl();
+                y.Main_Zone.Volume.Zone_B.Lvl.Val = $"{(change > 0 ? "Up" : "Down")} {Math.Abs(change)} dB";
+                y.Main_Zone.Volume.Zone_B.Lvl.Exp = "NULL_MARKER";
+                y.Main_Zone.Volume.Zone_B.Lvl.Unit = "NULL_MARKER";
+                return y;
+            }
+
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
             [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
             public partial class YAMAHA_AV
             {
 
-                private YAMAHA_AVMain_Zone main_ZoneField;
+                private YAMAHA_AV_Zone main_ZoneField;
 
                 private string cmdField;
 
                 
-                public YAMAHA_AVMain_Zone Main_Zone
+                public YAMAHA_AV_Zone Main_Zone
                 {
                     get
                     {
@@ -50,7 +63,6 @@ namespace YamahaControl
                     }
                 }
 
-                
                 [System.Xml.Serialization.XmlAttributeAttribute()]
                 public string cmd
                 {
@@ -67,13 +79,14 @@ namespace YamahaControl
 
             
             [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-            public partial class YAMAHA_AVMain_Zone
+            public partial class YAMAHA_AV_Zone
             {
 
-                private YAMAHA_AVMain_ZoneVolume volumeField;
+                private YAMAHA_AV_ZoneVolume volumeField;
 
-                
-                public YAMAHA_AVMain_ZoneVolume Volume
+
+
+                public YAMAHA_AV_ZoneVolume Volume
                 {
                     get
                     {
@@ -88,13 +101,14 @@ namespace YamahaControl
 
             
             [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-            public partial class YAMAHA_AVMain_ZoneVolume
+            public partial class YAMAHA_AV_ZoneVolume
             {
 
-                private YAMAHA_AVMain_ZoneVolumeLvl lvlField;
+                private YAMAHA_AV_ZoneVolumeLvl lvlField;
+                public YAMAMA_AZ_ZoneB Zone_B;
 
-                
-                public YAMAHA_AVMain_ZoneVolumeLvl Lvl
+
+                public YAMAHA_AV_ZoneVolumeLvl Lvl
                 {
                     get
                     {
@@ -109,7 +123,7 @@ namespace YamahaControl
 
             
             [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-            public partial class YAMAHA_AVMain_ZoneVolumeLvl
+            public partial class YAMAHA_AV_ZoneVolumeLvl
             {
 
                 private string valField;
@@ -160,5 +174,9 @@ namespace YamahaControl
 
 
         }
+
+    public class YAMAMA_AZ_ZoneB : VolumeControl.YAMAHA_AV_ZoneVolume
+    {
     }
+}
 

@@ -99,6 +99,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\MuteImage.gif" />
+    <None Include="Resources\speaker-volume.png" />
+    <None Include="Resources\speaker-volume-control.png" />
+    <None Include="Resources\speaker-volume-control-mute.png" />
+    <None Include="Resources\speaker-volume-control-up.png" />
     <Content Include="s_l300_rGF_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

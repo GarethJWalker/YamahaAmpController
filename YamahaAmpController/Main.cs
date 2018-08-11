@@ -47,6 +47,7 @@ namespace YamahaAmpController
         private void GetCurrent()
         {
 
+
             var np = Amp.NowPlaying();
 
             this.CurrentStatus = np.Status;
@@ -75,10 +76,12 @@ namespace YamahaAmpController
             }
 
 
+            
+
             if (currentTitle != np.Title)
             {
                 History.Add(new Tuple<DateTime,NowPlayingInfo>(DateTime.Now,np));
-                label4.Text = History.Count + " songs played";
+                button1.Text = History.Count + " songs";
                 currentTitle = np.Title;
                 this.label1.Text = np.Artist;
                 this.label2.Text = np.Title;
@@ -98,15 +101,43 @@ namespace YamahaAmpController
             }
         }
 
+        private void GetVolumeStatus()
+        {
+            var status = Amp.GetStatus();
+
+            if (status.MainZoneMute == "On")
+            {
+                this.Mute.Image = global::YamahaAmpController.Properties.Resources.speaker_volume_control_mute;
+            }
+            else
+            {
+                this.Mute.Image = global::YamahaAmpController.Properties.Resources.speaker_volume;
+            }
+
+            if (status.ZoneBMute == "On")
+            {
+                this.Mute2.Image = global::YamahaAmpController.Properties.Resources.speaker_volume_control_mute;
+            }
+            else
+            {
+                this.Mute2.Image = global::YamahaAmpController.Properties.Resources.speaker_volume;
+            }
+
+            Volume1.Text = (status.MainZoneVolume/10.0).ToString() + " dB";
+            Volume2.Text = (status.ZoneBVolume/10.0).ToString() + " dB";
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             GetCurrent();
+            GetVolumeStatus();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
             Amp.ChangeVolume(-2);
+            GetVolumeStatus();
 
         }
 
@@ -114,15 +145,10 @@ namespace YamahaAmpController
         {
 
             Amp.ChangeVolume(+2);
-
+            GetVolumeStatus();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-            if (HistoryWindow==null || HistoryWindow.IsDisposed) HistoryWindow = new History(this);
 
-            HistoryWindow.Show();
-        }
 
         private void PlayPause_Click(object sender, EventArgs e)
         {
@@ -179,6 +205,38 @@ namespace YamahaAmpController
         {
             this.Show();
             notifyIcon1.Visible = false;
+        }
+
+        private void DecreaseVolume2_Click(object sender, EventArgs e)
+        {
+            Amp.ChangeVolume(-2,2);
+            GetVolumeStatus();
+        }
+
+        private void IncreaseVolume2_Click(object sender, EventArgs e)
+        {
+            Amp.ChangeVolume(2, 2);
+            GetVolumeStatus();
+        }
+
+        private void Mute_Click(object sender, EventArgs e)
+        {
+            Amp.ToggleMute(1);
+            GetVolumeStatus();
+        }
+
+        private void Mute2_Click(object sender, EventArgs e)
+        {
+            Amp.ToggleMute(2);
+            GetVolumeStatus();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (HistoryWindow == null || HistoryWindow.IsDisposed) HistoryWindow = new History(this);
+
+            HistoryWindow.Show();
+            HistoryWindow.Focus();
         }
     }
 }
